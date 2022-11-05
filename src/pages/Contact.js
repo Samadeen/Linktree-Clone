@@ -2,9 +2,14 @@ import React from 'react';
 import Footer from '../components/Footer';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import Confetti from 'react-confetti';
+import { useState } from 'react';
 
 const Contact = () => {
+  const [btn, setBtn] = useState(false);
+
   const formik = useFormik({
+    // form state
     initialValues: {
       firstName: '',
       lastName: '',
@@ -13,6 +18,7 @@ const Contact = () => {
       check: '',
     },
 
+    //   form validation
     validationSchema: Yup.object({
       firstName: Yup.string()
         .max(20, 'Name must be 20 characters or less.')
@@ -27,8 +33,6 @@ const Contact = () => {
       check: Yup.array().required('Yoo!... Check me!!!'),
     }),
   });
-
-  console.log(formik.errors);
 
   return (
     <div className='contact container'>
@@ -135,9 +139,25 @@ const Contact = () => {
             )}
           </div>
           <div className='button'>
-            <button id='btn__submit' type='submit'>
+            <button
+              onClick={() => {
+                setBtn(true);
+              }}
+              id='btn__submit'
+              type='submit'
+            >
               Send message
             </button>
+            {!formik.errors.firstName &&
+            !formik.errors.lastName &&
+            !formik.errors.email &&
+            !formik.errors.message &&
+            !formik.errors.check &&
+            btn ? (
+              <Confetti />
+            ) : (
+              ''
+            )}
           </div>
         </form>
       </div>
