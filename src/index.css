@@ -48,6 +48,7 @@ header a {
   text-decoration: none;
   margin-top: 1rem;
 }
+
 .profile {
   margin-left: 6rem;
   position: relative;
@@ -91,6 +92,7 @@ main .buttons a:hover {
 
 .share_icon {
   margin-left: 3rem;
+  cursor: pointer;
 }
 
 .icons {
