@@ -107,7 +107,7 @@ small {
 
 /* Footer */
 footer {
-  border-top: 1px solid #eaecf0;
+  border-top: 2px solid #eaecf0;
   margin: 3rem 0 1rem;
   padding: 1rem 0;
   display: flex;
